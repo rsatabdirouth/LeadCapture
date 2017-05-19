@@ -1,0 +1,203 @@
+﻿@model LeadCapture.Models.CustDetail
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <!--main_body-->
+<div class="main_body">
+    <div class="slider_bg">
+        <div class="col-sm-5 slider_capsation">
+            <h3>Need a Helping Hand?</h3>
+            <p>
+                Do you need some help finding a mortgage that is really right for you? We offer 'whole of market' mortgage advice, meaning we have access to many different lenders and different mortgage products.
+            </p>
+        </div>
+    </div>
+    <div class="container respadding" style="position:relative;">
+        <div class="body_section">
+            <div class="col-sm-5 respadding">
+                <div class="left_bodyfrom">
+                    <div class="form_section">
+                        <div class="form_title">
+                            <h2>
+                                Start Your Mortgage Enquiry Now
+                                <span>
+                                    It’s all very simple, free for you to use and with absolutely no obligations! Simply answer a few short questions on the form below
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="form_fild">
+                            <form id="homeForm" method="POST" novalidate>
+                                <div class="col-md-6 res_section3">
+                                    <div class="col-sm-4 col-xs-4 res_section3">
+                                        @Html.LabelFor(m => m.Title)
+                                        @Html.DropDownListFor(m => m.Title, ViewBag.TitleItems as List<SelectListItem>, new { @class = "inputform", @style = "padding:5px 1px;" })
+                                    </div>
+                                    <div class="col-sm-8 col-xs-8 res_section2">
+                                        @Html.LabelFor(m => m.FirstName)
+                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "inputform", @data_validation = "required" })
+
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="col-sm-6 res_section3">
+
+                                    @Html.LabelFor(m => m.LastName)
+                                    @Html.TextBoxFor(m => m.LastName, new { @class = "inputform", @data_validation = "required" })
+                                </div>
+                                <div class="clr"></div>
+                                <div class="col-sm-6 res_section3">
+
+                                    @Html.LabelFor(m => m.Gender)
+                                    Male: @Html.RadioButtonFor(m => m.Gender, "Male")
+                                    Female: @Html.RadioButtonFor(m => m.Gender, "Female")
+                                </div>
+                                <div class="clr"></div>
+
+                                <div class="col-sm-6 res_section3">
+                                    @Html.LabelFor(m => m.MobileNumber)
+                                    @Html.TextBoxFor(model => model.MobileNumber, new { @class = "Form-Control" })
+
+                                </div>
+                                <div class="col-sm-6 res_section3">
+                                    @Html.LabelFor(m => m.AlternativeNumber)
+                                    @Html.TextBoxFor(model => model.AlternativeNumber, new { @class = "Form-Control" })
+
+                                </div>
+                                <div class="clr"></div>
+
+                                <div class="col-sm-6 res_section3">
+                                    @Html.LabelFor(m => m.EmailAddress)
+                                    @Html.TextBoxFor(model => model.EmailAddress, new { @class = "Form-Control" })
+                                </div>
+                                <div class="col-sm-6 res_section3">
+                                    @Html.LabelFor(m => m.PostCode)
+                                    @Html.TextBoxFor(model => model.PostCode, new { @class = "Form-Control" })
+                                </div>
+                                <div class="clr"></div>
+
+                                <div class="col-sm-6 res_section3">
+                                    @Html.LabelFor(m => m.Housenameornumber)
+                                    @Html.TextBoxFor(model => model.Housenameornumber, new { @class = "Form-Control" })
+                                </div>
+                                <div class="col-sm-6 res_section3">
+
+                                    @Html.LabelFor(m => m.LookingFor)
+                                    @Html.DropDownListFor(m => m.LookingFor, ViewBag.LookingFor as List<SelectListItem>)
+
+                                </div>
+                                <div class="clr"></div>
+
+                                <div class="col-sm-6 res_section3">
+                                    @Html.LabelFor(m => m.ValueOfTheProperty)
+                                    @Html.TextBoxFor(model => model.ValueOfTheProperty, new { @class = "Form-Control" })
+                                </div>
+                                <div class="col-sm-6 res_section3">
+                                    @Html.LabelFor(m => m.MorttgageAmount)
+                                    @Html.TextBoxFor(model => model.MorttgageAmount, new { @class = "Form-Control" })
+                                </div>
+                                <div class="clr"></div>
+
+                                <div class="col-sm-6 res_section3">
+
+                                    @Html.LabelFor(m => m.Term)
+                                    @Html.DropDownListFor(m => m.Term, ViewBag.Term as List<SelectListItem>)
+                                </div>
+                                <div class="clr"></div>
+                                <div class="col-sm-6 res_section3">
+
+                                    @Html.LabelFor(m => m.TypeOfRate)
+                                    @Html.DropDownListFor(m => m.TypeOfRate, ViewBag.RateType as List<SelectListItem>)
+                                </div>
+                                <div class="missed_div">
+                                    <div class="col-sm-10" style="padding-left:0;">
+                                        <p>
+                                            I have missed a mortgage or loan repayment in the past 36 months or been declared bankrupt, had CCJ’s, Defaults or entered
+                                            into an IVA in the past 6 years?
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-2 no-padding">
+                                        @*<select class="inputformNo" name="AdverseCredit" id="AdverseCredit" type="select-one">
+                                                <option value="false">No </option>
+                                                <option value="true">yes</option>
+                                            </select>*@
+
+                                    </div>
+
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="send_req">
+                                    <div class="submit_buttonnew" style="display:none;">Submit</div>
+                                    <input type="submit" id="homeFormSubmit" class="submit_buttonnew" value="Submit">
+                                </div>
+                                <p>
+                                    By using this form you are consenting to your information being passed to a mortgage broker or appointed representative who
+                                    will contact you. This information may be used by us or selected partners to advise you of other useful products
+                                    or services that we feel you would be interested in.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand_section">
+                    <p>Compare leading lenders including...</p>
+                    <ul class="brandPic">
+                        <li><img src=@Url.Content("~/Content/img/brand_1.jpg") alt="brand" style="width:100%;" /></li>
+                        <li><img src=@Url.Content("~/Content/img/brand_2.jpg") alt="brand" style="width:100%;" /></li>
+                        <li><img src=@Url.Content("~/Content/img/brand_3.jpg") alt="brand" style="width:100%;" /></li>
+                        <li><img src=@Url.Content("~/Content/img/brand_4.jpg") alt="brand" style="width:100%;" /></li>
+                        <li><img src=@Url.Content("~/Content/img/brand_5.jpg") alt="brand" style="width:100%;" /></li>
+                        <!-- <li><img src="img/brand_6.jpg" alt="brand" style="width:100%;"/></li>
+                        <li><img src="img/brand_7.jpg" alt="brand" style="width:100%;"/></li>
+                        <li><img src="img/brand_8.jpg" alt="brand" style="width:100%;"/></li> -->
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="bodytext">
+                    <h3>Macclesfield & Cheshire Mortgage Advisors</h3>
+                    <p>
+                        Marquis Financial Services is a professional mortgage and financial services provider based in Cheshire. We have access to the whole of the UK mortgage market and using our expertise and a combined experience of over 75 years can advise, recommend and arrange mortgages and insurance policies that are specifically tailored to your individual needs.
+                    </p>
+                    <p>
+                        <b>We believe that our client's success determines our own, so we ensure both, by working closely with our clients to ensure their financial goals.</b>
+                    </p>
+                    <p>
+                        All of our advisors are fully qualified in mortgage and insurance advice and committed to providing our clients with an exceptional level of service and the best possible deal to suit their needs. We aim to provide our clients with real time updates on the progression of any applications and have a single point of contact too ensure a personal service.
+                    </p>
+                    <div class="clr"></div>
+
+                    <h3>So what’s special about Mortgage ?</h3>
+                    <ul class="bodytext_nav">
+                        <li>We were established in 1999</li>
+                        <li>We are totally unbiased and independent – we work for our clients not the lender</li>
+                        <li>We are Directly Regulated by the Financial Conduct Authority and have access to every lender - not a small panel.</li>
+                        <li>We always back up our recommendations with a detailed letter explaining why we have made a recommendatio</li>
+                        <li>
+                            We are highly accessible – in and out of the office hours, online, by landline and mobile, by email, text, Facebook and Twitter
+                        </li>
+                        <li>
+                            Our expert advisers cover the whole UK but being a Welsh based company we know South Wales very well. Especially Cardiff, Swansea, Newport, Barry, Monmouth, Neath, Cwmbran, Bridgend, Brecon, Merthyr Tydfil, Caerphilly, Port Talbot, Pontypridd, Penarth and Abergavenny.
+                        </li>
+                    </ul>
+                    <p>
+                        We specialise in all facet of property ownership for residential and commercial use. We are driven by the desire to simplify the property ownership process and save you money whether you are remortgaging, buying your first home, buying you next home, buying a rental property or investing in property.
+                    </p>
+                    <div class="clr"></div>
+
+                    <h3>Valuation of your New Home</h3>
+                    <p>
+                        When arranging a mortgage, after the initial assessment of the application, all lenders will want a valuation carried out by an independent surveyor on the property you are buying which unfortunately is usually at your costs. The lender will only want a “basic” valuation carried out, which is really only for their purposes and will not provide you with any report.
+                    </p>
+                    <p>
+                        As purchasing a property for the first time is a big step for most people, both financially and emotionally, you may want a more comprehensive survey to be carried out, one which will provide you with a more in depth view of the property, potentially highlighting any work that may be required to be carried out on the property in the near future.
+                    </p>
+                    <p>
+                        There are three main types of valuations/surveys and each comes with a different cost, these can vary considerably from lender to lender but below we have provided a guide of the likely costs based on a property of £150,000
+                    </p>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
